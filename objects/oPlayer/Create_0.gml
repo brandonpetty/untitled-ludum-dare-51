@@ -1,7 +1,7 @@
 /// @desc Core Variables
 
-hsp = 0;
-vsp = 0;
+horz_speed = 0;
+vert_speed = 0;
 grv = 0.3;
-walksp = 4;
-jumpsp = 9;
+walk_speed = 4;
+jump_speed = 9;

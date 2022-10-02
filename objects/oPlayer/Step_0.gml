@@ -8,31 +8,31 @@ key_right = keyboard_check(vk_right);
 // movement
 var _move = key_right - key_left;
 
-hsp = _move * walksp;
+horz_speed = _move * walk_speed;
 
-vsp = vsp + grv;
+vert_speed = vert_speed + grv;
 
 // jump
 if (place_meeting(x,y+1,oWall)) && (key_jump) {
-	vsp = -jumpsp;
+	vert_speed = -jump_speed;
 }
 
 // horizontal collison
-if (place_meeting(x+hsp,y,oWall)) {
-	while (!place_meeting(x+sign(hsp),y,oWall)) {
-		x = x + sign(hsp);
+if (place_meeting(x+horz_speed,y,oWall)) {
+	while (!place_meeting(x+sign(horz_speed),y,oWall)) {
+		x = x + sign(horz_speed);
 	}
-	hsp = 0; // hit collison
+	horz_speed = 0; // hit collison
 }
 
-x = x + hsp;
+x = x + horz_speed;
 
 // vertical collison
-if (place_meeting(x,y+vsp,oWall)) {
-	while (!place_meeting(x,y+sign(vsp),oWall)) {
-		y = y + sign(vsp);
+if (place_meeting(x,y+vert_speed,oWall)) {
+	while (!place_meeting(x,y+sign(vert_speed),oWall)) {
+		y = y + sign(vert_speed);
 	}
-	vsp = 0; // hit collison
+	vert_speed = 0; // hit collison
 }
 
-y = y + vsp;
+y = y + vert_speed;
